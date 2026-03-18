@@ -10,19 +10,19 @@ int main() {
 
 
     int torre;
-    int bispo = 1;
-    int rainha = 1;
+    int bispo = 0;
+    int rainha = 0;
 
     // Simulando movimento da TORRE
     printf("\nPrepare-se, a Torre irá se mover!\n");
-    for (torre = 1; torre <= 5; torre++) {
+    for (torre = 0; torre < 5; torre++) {
         printf("Direita\n");
     }
 
 
     // Simulando movimento do BISPO
     printf("\nPrepare-se, o Bispo irá se mover!\n");
-    while (bispo <= 5) {
+    while (bispo < 5) {
         printf("Cima, Direita\n");
         bispo++;
     }
@@ -32,5 +32,5 @@ int main() {
     do {
         printf("Esquerda\n");
         rainha++;
-    } while (rainha <= 8);
+    } while (rainha < 8);
 }
