@@ -13,6 +13,9 @@ int main() {
     int bispo = 0;
     int rainha = 0;
 
+    // começa em 0 e vai rodar apenas 1 vez (0 < 1)
+    int movimentoCavalo = 0;
+
     // Simulando movimento da TORRE
     printf("\nPrepare-se, a Torre irá se mover!\n");
     for (torre = 0; torre < 5; torre++) {
@@ -33,4 +36,20 @@ int main() {
         printf("Esquerda\n");
         rainha++;
     } while (rainha < 8);
+
+
+    // Simulando movimento do CAVALO
+    printf("\nPrepare-se, o Cavalo irá se mover!\n");
+
+    // rodar 1 vez
+    while (movimentoCavalo < 1) {
+        // vai rodar 2 vezes o movimento para baixo
+        for (int cavalo = 0; cavalo < 2; cavalo++) {
+            printf("Baixo\n");
+        }
+
+        movimentoCavalo++;
+    }
+
+    printf("Esquerda\n");
 }
