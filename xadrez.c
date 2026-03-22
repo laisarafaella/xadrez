@@ -1,55 +1,86 @@
 #include <stdio.h>
 
-int main() {
-    // TORRE - linha reta horizontalmente ou verticalmente - 5 CASAS PARA DIREITA
-    // for (torre = 0; torre <= 5; torre++)
-    // BISPO - diagonal - 5 CASAS DIAGONAL PARA CIMA E DIREITA
-    // while
-    // RAINHA - todas direcoes - 8 CASAS PARA ESQUERDA
-    // do while
 
+void movimentoTorre(int torre) {
+    // 5 casas para direita
 
-    int torre;
-    int bispo = 0;
-    int rainha = 0;
-
-    // começa em 0 e vai rodar apenas 1 vez (0 < 1)
-    int movimentoCavalo = 0;
-
-    // Simulando movimento da TORRE
-    printf("\nPrepare-se, a Torre irá se mover!\n");
-    for (torre = 0; torre < 5; torre++) {
+    if (torre > 0) {
         printf("Direita\n");
+
+        // decremento
+        movimentoTorre(torre - 1);
     }
 
-
-    // Simulando movimento do BISPO
-    printf("\nPrepare-se, o Bispo irá se mover!\n");
-    while (bispo < 5) {
-        printf("Cima, Direita\n");
-        bispo++;
-    }
-
-    // Simulando movimento da RAINHA
-    printf("\nPrepare-se, a Rainha irá se mover!\n");
-    do {
-        printf("Esquerda\n");
-        rainha++;
-    } while (rainha < 8);
+}
 
 
-    // Simulando movimento do CAVALO
-    printf("\nPrepare-se, o Cavalo irá se mover!\n");
+void movimentoBispo(int bispo) {
+    // 5 casas diagonal cima e 1 casa para direita
 
-    // rodar 1 vez
-    while (movimentoCavalo < 1) {
-        // vai rodar 2 vezes o movimento para baixo
-        for (int cavalo = 0; cavalo < 2; cavalo++) {
-            printf("Baixo\n");
+    if (bispo <= 0) return;
+    
+    if (bispo == 5 ) {
+
+        // externo - diagonal
+        for (int i = 0; i < 5; i++) {
+            printf("Cima\n");
+
+            // intern0 - direita
+            for (int j = 0; j < 1; j++) {
+                if (i == 4) {
+                    printf("Direita\n");
+                }
+                
+            }
         }
+        movimentoBispo(bispo - 1);
+    }
+}
 
-        movimentoCavalo++;
+
+void movimentoRainha(int rainha) {
+    // 8 casas para esquerda
+
+    if (rainha > 0) {
+        printf("Esquerda\n");
+
+        movimentoRainha(rainha - 1);
+    }
+}
+
+
+void movimentoCavalo() {
+    // 2 casas para cima e 1 casa para direita
+    // loop avancado - multiplas variaveis e/ou condicoes
+
+    for (int i = 0, j = 0; i < 3 && j < 3; i++, j++) {
+
+        if (i < 2) {
+            printf("Cima\n");
+            continue;
+        }
+        
+        printf("Direita\n");
+        break;
     }
 
-    printf("Esquerda\n");
+}
+
+
+
+int main() {
+
+    printf("\nPrepare-se, a Torre irá se mover!\n");
+    movimentoTorre(5);
+
+    printf("\nPrepare-se, o Bispo irá se mover!\n");
+    movimentoBispo(5);
+
+    printf("\nPrepare-se, a Rainha irá se mover!\n");
+    movimentoRainha(8);
+
+    printf("\nPrepare-se, o Cavalo irá se mover!\n");
+    movimentoCavalo();
+
+
 }
